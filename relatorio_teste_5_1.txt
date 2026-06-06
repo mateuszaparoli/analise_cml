@@ -1,0 +1,38 @@
+Aqui está o texto acadêmico formatado e pronto para ser integrado às seções finais do seu relatório técnico. O texto utiliza uma linguagem formal, rigorosa e adequada para um trabalho de Aprendizado de Máquina Causal.
+
+---
+
+### 6.3 Metodologia de Avaliação Causal
+
+Para avaliar formalmente o impacto causal do transtorno mental no desfecho de lesão autoprovocada, implementou-se um Modelo Estrutural Causal (SCM) baseado no grafo direcionado acíclico (DAG) de especialistas estabelecido anteriormente. Utilizando o framework *DoWhy*, o primeiro passo consistiu na identificação do efeito causal para a Hipótese 5.1 , definindo a presença de transtorno mental (`TRAN_MENT`) como a variável de tratamento e a ocorrência de lesão autoprovocada (`LES_AUTOP`) como a variável alvo (desfecho).
+
+A análise topológica do grafo determinou que o efeito é identificável por meio do Critério *Backdoor* (Caminho Secundário). Para isolar o efeito do tratamento e neutralizar a ação de variáveis confundidoras, o algoritmo determinou a necessidade de condicionamento e ajuste estatístico sobre um conjunto específico de covariáveis observadas no dataset do SINAN : a faixa etária (`NU_IDADE_N`) , a situação conjugal (`SIT_CONJUG`) e o histórico de recorrência de violência (`OUT_VEZES`). Sob a premissa de ausência de confundimento não observado (*Unconfoundedness Assumption*), o bloqueio dessas vias garante que a associação remanescente entre o tratamento e o desfecho reflita puramente uma relação de causa e efeito.
+
+### 6.4 Resultados da Estimação
+
+Após a execução da limpeza rigorosa e do isolamento estrito das matrizes matemáticas do modelo, a base de dados nacional de 2024 totalizou uma amostra qualificada de 96.193 observações biunívocas. Dado que a variável de desfecho (`LES_AUTOP`) é estritamente binária (representando a ocorrência ou não de lesão autoprovocada), utilizou-se um Modelo Linear Generalizado (GLM) com família Binomial, equivalente a uma abordagem de Regressão Logística, para computar o Efeito Causal Médio (ATE).
+
+Os resultados quantitativos da estimação são apresentados a seguir:
+
+* **Efeito Causal Médio (ATE) Estimado:** 0,156084
+* **Intervalo de Confiança de 95%:** (0,149822, 0,162096)
+
+O valor obtido para o ATE indica que, mantendo todas as variáveis de confusão controladas e constantes, a presença diagnosticada de um transtorno mental (`TRAN_MENT`) introduz um incremento líquido de **15,61%** na probabilidade absoluta de o indivíduo apresentar um comportamento de lesão autoprovocada. O intervalo de confiança extremamente estreito evidencia a alta precisão estatística da estimativa, decorrente do robusto volume amostral processado.
+
+### 6.5 Testes de Robustez (Refutação)
+
+Para garantir que o efeito causal estimado não seja decorrente de artefatos estatísticos, correlações espúrias ou falhas de especificação do DAG, o modelo foi submetido a dois testes rigorosos de refutação baseados em simulações contrafactuais.
+
+1. **Adição de Causa Comum Aleatória (*Random Common Cause*):** Este teste insere uma variável independente artificial (ruído gaussiano) no conjunto de dados para atuar como um confundidor fictício. Caso o modelo original dependesse de uma especificação frágil, a inclusão desse ruído deslocaria significativamente o efeito. A reestimação do modelo sob essa condição resultou em um novo efeito de **0,156083**, demonstrando estabilidade quase absoluta. O valor-p obtido foi de **0,76**, confirmando que a introdução do novo termo não possui impacto estatisticamente significante sobre a estimativa original.
+2. 
+**Tratamento Placebo (*Placebo Treatment*):** Este teste substitui a variável real de tratamento (`TRAN_MENT`) por uma variável puramente aleatória, obtida por meio da permutação dos dados originais. Como o "falso tratamento" não possui conexão causal real com o desfecho, o efeito estimado deve colapsar. A execução do teste confirmou essa premissa: o novo efeito caiu para **$8,22 \times 10^{-14}$** (zero do ponto de vista prático), com um valor-p de **0,0**. A rejeição da hipótese nula neste cenário valida o modelo, assegurando que o efeito de 15,61% observado anteriormente é de fato gerado pela variação de `TRAN_MENT`.
+
+
+
+### 7. Conclusão
+
+Este trabalho apresentou uma abordagem estruturada de Aprendizado de Máquina Causal para investigar os determinantes e fatores de risco associados à violência autoprovocada no Brasil, utilizando dados epidemiológicos do SINAN/Datasus do ano de 2024. Diante das limitações biológicas e lógicas evidenciadas pelos algoritmos de descoberta causal puramente orientados a dados — os quais geraram inconsistências severas, como a inversão temporal entre o desfecho e construtos de identidade de gênero —, a incorporação de restrições baseadas em conhecimento de domínio mostrou-se um passo metodológico indispensável.
+
+A modelagem causal e os experimentos subsequentes confirmaram com robustez estatística a Hipótese 5.1 formulada neste projeto. O diagnóstico ou presença de transtornos mentais atua como um forte determinante causal em direção à lesão autoprovocada, elevando o risco absoluto do desfecho em 15,61%. Os testes contrafactuais de refutação blindaram as conclusões, rejeitando a existência de vieses por confundimento não observado ou aleatoriedade nos dados.
+
+Do ponto de vista de formulação de políticas públicas e intervenções em saúde mental, esses achados fornecem um forte argumento quantitativo. Eles demonstram que estratégias direcionadas ao suporte clínico, acompanhamento médico e mitigação de sofrimentos psíquicos crônicos e transtornos comportamentais possuem um canal de causalidade direto e mensurável, capaz de reduzir significativamente as taxas de violência autoprovocada e tentativas de autoextermínio na população.

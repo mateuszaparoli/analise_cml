@@ -1,0 +1,41 @@
+Carregando os dados...
+Dados carregados e filtrados. Total de registros: 591909
+
+[Tarefa 2.1] Inicializando o Modelo Causal no DoWhy...
+
+[Tarefa 2.2] Executando a Identificação do Efeito...
+
+========================================
+RESULTADO DA IDENTIFICAÇÃO CAUSAL
+========================================
+Estimand type: EstimandType.NONPARAMETRIC_ATE
+
+### Estimand : 1
+Estimand name: backdoor
+Estimand expression:
+     d
+────────────(E[LES_AUTOP|SIT_CONJUG,OUT_VEZES,NU_IDADE_N])
+d[TRAN_MENT]
+Estimand assumption 1, Unconfoundedness: If U→{TRAN_MENT} and U→LES_AUTOP then P(LES_AUTOP|TRAN_MENT,SIT_CONJUG,OUT_VEZES,NU_IDADE_N,U) = P(LES_AUTOP|TRAN_MENT,SIT_CONJUG,OUT_VEZES,NU_IDADE_N)
+
+### Estimand : 2
+Estimand name: iv
+Estimand expression:
+ ⎡                                                                           -1⎤
+ ⎢           d                        ⎛           d                         ⎞  ⎥
+E⎢────────────────────────(LES_AUTOP)⋅⎜────────────────────────([TRAN_MENT])⎟  ⎥
+ ⎣d[ORIENT_SEX  IDENT_GEN]            ⎝d[ORIENT_SEX  IDENT_GEN]             ⎠  ⎦
+Estimand assumption 1, As-if-random: If U→→LES_AUTOP then ¬(U →→{ORIENT_SEX,IDENT_GEN})
+Estimand assumption 2, Exclusion: If we remove {ORIENT_SEX,IDENT_GEN}→{TRAN_MENT}, then ¬({ORIENT_SEX,IDENT_GEN}→LES_AUTOP)
+
+### Estimand : 3
+Estimand name: frontdoor
+No such variable(s) found!
+
+### Estimand : 4
+Estimand name: general_adjustment
+Estimand expression:
+     d
+────────────(E[LES_AUTOP|SIT_CONJUG,CS_ESCOL_N,OUT_VEZES])
+d[TRAN_MENT]
+Estimand assumption 1, Unconfoundedness: If U→{TRAN_MENT} and U→LES_AUTOP then P(LES_AUTOP|TRAN_MENT,SIT_CONJUG,CS_ESCOL_N,OUT_VEZES,U) = P(LES_AUTOP|TRAN_MENT,SIT_CONJUG,CS_ESCOL_N,OUT_VEZES)

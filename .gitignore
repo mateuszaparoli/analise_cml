@@ -1,0 +1,35 @@
+# ========================
+# Ambientes Virtuais
+# ========================
+venv/
+.venv/
+env/
+.env/
+ENV/
+
+# ========================
+# Cache e Compilados do Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+
+# ========================
+# Jupyter Notebooks e Dados
+# ========================
+.ipynb_checkpoints/
+# Ignorar as bases de dados e grafos gerados localmente (opcional, remova o # se quiser ignorar)
+# *.csv
+# *.gml
+# *.png
+
+# ========================
+# IDEs e Sistema Operacional
+# ========================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp

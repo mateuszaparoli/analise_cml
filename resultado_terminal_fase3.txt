@@ -1,0 +1,50 @@
+Carregando e limpando os dados (Limpeza Nuclear)...
+Linhas mantidas (Matriz 100% limpa): 96193
+/home/mateuszaparoli/ufmg/7_semestre/cml/projeto final/venv/lib/python3.12/site-packages/dowhy/causal_model.py:581: UserWarning: 15 variables are assumed unobserved because they are not in the dataset. Configure the logging level to `logging.WARNING` or higher for additional details.
+  warnings.warn(
+
+[Tarefa 3.1] Estimando o efeito causal via Regressão Logística...
+
+========================================
+RESULTADO DA ESTIMAÇÃO (EFEITO CAUSAL)
+========================================
+*** Causal Estimate ***
+
+## Identified estimand
+Estimand type: EstimandType.NONPARAMETRIC_ATE
+
+### Estimand : 1
+Estimand name: backdoor
+Estimand expression:
+     d
+────────────(E[LES_AUTOP|NU_IDADE_N,SIT_CONJUG,OUT_VEZES])
+d[TRAN_MENT]
+Estimand assumption 1, Unconfoundedness: If U→{TRAN_MENT} and U→LES_AUTOP then P(LES_AUTOP|TRAN_MENT,NU_IDADE_N,SIT_CONJUG,OUT_VEZES,U) = P(LES_AUTOP|TRAN_MENT,NU_IDADE_N,SIT_CONJUG,OUT_VEZES)
+
+## Realized estimand
+b: LES_AUTOP~Sigmoid(TRAN_MENT+NU_IDADE_N+SIT_CONJUG+OUT_VEZES)
+Target units: ate
+
+## Estimate
+Mean value: 0.1560839955550819
+95.0% confidence interval: (np.float64(0.14982152518404834), np.float64(0.16209593627359264))
+
+Valor do Efeito Causal Estimado: 0.156084
+
+[Tarefa 3.2] Iniciando os testes de refutação...
+
+Roteando Teste 1: Random Common Cause...
+Refute: Add a random common cause
+Estimated effect:0.1560839955550819
+New effect:0.15608269023442883
+p value:0.76
+
+
+Roteando Teste 2: Placebo Treatment...
+        ^[[D^[[CRefute: Use a Placebo Treatment
+Estimated effect:0.1560839955550819
+New effect:8.22675261247241e-14
+p value:0.0
+
+
+Experimentos concluídos com sucesso!
