@@ -1,0 +1,31 @@
+tratamento,ate_original,refutador,resultado,status,erro
+OUT_VEZES,0.06328603555934903,random_common_cause,"Refute: Add a random common cause
+Estimated effect:0.06328603555934903
+New effect:0.06323430133984194
+p value:0.45999999999999996
+",ok,
+OUT_VEZES,0.06328603555934903,data_subset_refuter,"Refute: Use a subset of data
+Estimated effect:0.06328603555934903
+New effect:0.06313020788579082
+p value:0.8999999999999999
+",ok,
+IDENT_GEN,0.04118240278838503,random_common_cause,"Refute: Add a random common cause
+Estimated effect:0.04118240278838503
+New effect:0.041182402788385024
+p value:2.0
+",ok,
+IDENT_GEN,0.04118240278838503,data_subset_refuter,"Refute: Use a subset of data
+Estimated effect:0.04118240278838503
+New effect:0.04019987619741704
+p value:0.8999999999999999
+",ok,
+deficiencia,-0.030459359069651692,random_common_cause,"Refute: Add a random common cause
+Estimated effect:-0.030459359069651692
+New effect:-0.03045935112231789
+p value:1.92
+",ok,
+deficiencia,-0.030459359069651692,data_subset_refuter,"Refute: Use a subset of data
+Estimated effect:-0.030459359069651692
+New effect:-0.03049112403675449
+p value:0.94
+",ok,
