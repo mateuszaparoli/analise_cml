@@ -1,0 +1,5 @@
+tratamento,outcome,metodo,ate,status,erro
+TRAN_MENT,LES_AUTOP,backdoor.propensity_score_weighting,0.09227083271562808,ok,
+OUT_VEZES,LES_AUTOP,backdoor.propensity_score_weighting,0.049179258509999046,ok,
+ORIENT_SEX,LES_AUTOP,backdoor.propensity_score_weighting,0.04358362934278426,ok,
+IDENT_GEN,LES_AUTOP,backdoor.propensity_score_weighting,0.009264192617693068,ok,
