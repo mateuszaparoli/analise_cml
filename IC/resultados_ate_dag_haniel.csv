@@ -1,6 +1,0 @@
-tratamento,outcome,metodo,ate,status,erro
-OUT_VEZES,LES_AUTOP,backdoor.propensity_score_weighting,0.06328603555934903,ok,
-ORIENT_SEX,LES_AUTOP,backdoor.propensity_score_weighting,,erro,No common causes/confounders present. Propensity score based methods are not applicable
-IDENT_GEN,LES_AUTOP,backdoor.propensity_score_weighting,0.04118240278838503,ok,
-deficiencia,LES_AUTOP,backdoor.propensity_score_weighting,-0.030459359069651692,ok,
-metodo,LES_AUTOP,backdoor.propensity_score_weighting,0.6093966948590557,ok,
